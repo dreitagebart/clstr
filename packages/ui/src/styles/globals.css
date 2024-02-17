@@ -1,3 +1,7 @@
 .clstr-Text-root {
   /* background-color: aliceblue; */
 }
+
+.clstr-ActionIcon-root {
+  transition: all 400ms ease-in;
+}

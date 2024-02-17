@@ -6,6 +6,7 @@ import { colorSchemeManager } from '@utils/color-scheme'
 import { theme } from '@styles/theme'
 
 import classes from './center-layout.module.css'
+import { SessionProvider } from 'next-auth/react'
 
 export type CenterLayoutProps = PropsWithChildren
 
@@ -13,23 +14,25 @@ export const CenterLayout: FC<CenterLayoutProps> = ({ children }) => {
   return (
     <>
       <ColorSchemeScript></ColorSchemeScript>
-      <MantineProvider
-        classNamesPrefix='clstr'
-        withCssVariables
-        defaultColorScheme='auto'
-        colorSchemeManager={colorSchemeManager}
-        theme={theme}
-      >
-        <Flex
-          align='center'
-          justify='center'
-          classNames={{
-            root: classes.root
-          }}
+      <SessionProvider>
+        <MantineProvider
+          classNamesPrefix='clstr'
+          withCssVariables
+          defaultColorScheme='auto'
+          colorSchemeManager={colorSchemeManager}
+          theme={theme}
         >
-          {children}
-        </Flex>
-      </MantineProvider>
+          <Flex
+            align='center'
+            justify='center'
+            classNames={{
+              root: classes.root
+            }}
+          >
+            {children}
+          </Flex>
+        </MantineProvider>
+      </SessionProvider>
     </>
   )
 }

@@ -1,0 +1,15 @@
+{
+  "name": "@clstr/schema",
+  "version": "0.1.0",
+  "exports": {
+    "./handler": "./src/handler.ts"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@pothos/core": "^3.41.0",
+    "graphql": "^16.8.1",
+    "graphql-yoga": "^5.1.1"
+  }
+}

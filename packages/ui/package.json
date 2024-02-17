@@ -31,7 +31,9 @@
     "@mantine/hooks": "^7.5.2",
     "@mantine/modals": "^7.5.2",
     "@next/font": "^14.1.0",
+    "@tabler/icons-react": "^2.47.0",
     "dayjs": "^1.11.10",
+    "next-auth": "^4.24.6",
     "recharts": "2"
   }
 }

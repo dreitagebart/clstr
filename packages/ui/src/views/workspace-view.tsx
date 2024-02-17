@@ -1,4 +1,4 @@
-import { Navbar } from '@components/shell'
+import { Header, Navbar } from '@components/shell'
 import { Button, Group, Title } from '@mantine/core'
 
 const getJoke = async () => {
@@ -18,6 +18,7 @@ export const WorkspaceView = async () => {
 
   return (
     <>
+      <Header></Header>
       <Navbar>
         <Title order={4}>Chuck Norris</Title>
         <Group>
