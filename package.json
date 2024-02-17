@@ -1,15 +1,17 @@
 {
-  "name": "clstr",
+  "name": "@clstr/core",
   "private": true,
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "dev:web": "turbo dev --filter=@clstr/web",
+    "dev:docs": "turbo dev --filter=@clstr/docs",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@clstr/eslint-config": "workspace:*",
+    "@clstr/typescript-config": "workspace:*",
     "prettier": "^3.1.1",
     "turbo": "latest"
   },

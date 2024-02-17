@@ -1,0 +1,7 @@
+.wrapper {
+  padding: var(--mantine-spacing-xl);
+  box-shadow: var(--mantine-shadow-xl);
+  border-radius: var(--mantine-radius-sm);
+  border: 1px solid var(--mantine-color-gray-0);
+  min-width: 420px;
+}

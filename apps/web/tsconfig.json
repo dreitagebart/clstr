@@ -1,6 +1,12 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
+  "extends": "@clstr/typescript-config/nextjs.json",
   "compilerOptions": {
+    "paths": {
+      "@styles/*": ["../../packages/ui/src/styles/*"],
+      "@components/*": ["../../packages/ui/src/components/*"],
+      "@hooks/*": ["../../packages/ui/src/hooks/*"],
+      "@utils/*": ["../../packages/ui/src/utils/*"]
+    },
     "plugins": [
       {
         "name": "next"
