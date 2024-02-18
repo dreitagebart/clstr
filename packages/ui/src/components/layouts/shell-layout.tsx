@@ -11,6 +11,8 @@ import { theme } from '@styles/theme'
 import { colorSchemeManager } from '@utils/color-scheme'
 import { SessionProvider } from 'next-auth/react'
 
+import classes from './shell-layout.module.css'
+
 export type ShellLayoutProps = PropsWithChildren
 
 export const ShellLayout: FC<ShellLayoutProps> = ({ children }) => {
@@ -30,6 +32,11 @@ export const ShellLayout: FC<ShellLayoutProps> = ({ children }) => {
         >
           <AppShell
             layout='alt'
+            classNames={{
+              header: classes.header,
+              navbar: classes.navbar,
+              main: classes.main
+            }}
             header={{ height: 80, offset: true }}
             navbar={{
               width: { base: 400, md: 300, lg: 400 },

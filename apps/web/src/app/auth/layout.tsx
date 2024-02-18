@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { CenterLayout } from '@clstr/ui/components'
+import { CenterLayout } from '@clstr/ui/layouts'
 import { FC, PropsWithChildren } from 'react'
 
 export const metadata: Metadata = {

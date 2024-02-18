@@ -5,11 +5,18 @@
     "./handler": "./src/handler.ts"
   },
   "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf ./dist ./node_modules",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@pothos/core": "^3.41.0",
     "graphql": "^16.8.1",
     "graphql-yoga": "^5.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
   }
 }

@@ -1,0 +1,20 @@
+.header {
+  background-color: light-dark(
+    aliceblue,
+    darken(var(--mantine-color-dark-9), 0.6)
+  );
+}
+
+.navbar {
+  background-color: light-dark(
+    aliceblue,
+    darken(var(--mantine-color-grape-9), 0.9)
+  );
+}
+
+.main {
+  background-color: light-dark(
+    aliceblue,
+    darken(var(--mantine-color-dark-9), 0.6)
+  );
+}

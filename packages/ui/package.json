@@ -2,12 +2,27 @@
   "name": "@clstr/ui",
   "version": "0.1.0",
   "private": true,
+  "typesVersions": {
+    "*": {
+      "views": [
+        "./dist/views/index.d.ts"
+      ],
+      "layouts": [
+        "./dist/components/layouts/index.d.ts"
+      ]
+    }
+  },
   "exports": {
-    "./components": "./src/components/index.ts",
-    "./hooks": "./src/hooks/index.ts",
-    "./views": "./src/views/index.ts"
+    "./auth": "./src/utils/auth.ts",
+    "./postcss.config.js": "./postcss.config.js",
+    "./views": "./src/views/index.ts",
+    "./layouts": "./src/components/layouts/index.ts"
   },
   "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf ./dist ./node_modules",
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component"
   },
@@ -20,6 +35,9 @@
     "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
     "eslint": "^8.56.0",
+    "postcss": "^8.4.35",
+    "postcss-preset-mantine": "^1.13.0",
+    "postcss-simple-vars": "^7.0.1",
     "react": "^18.2.0",
     "typescript": "^5.3.3"
   },
@@ -30,9 +48,9 @@
     "@mantine/form": "^7.5.2",
     "@mantine/hooks": "^7.5.2",
     "@mantine/modals": "^7.5.2",
-    "@next/font": "^14.1.0",
     "@tabler/icons-react": "^2.47.0",
     "dayjs": "^1.11.10",
+    "next": "^14.0.4",
     "next-auth": "^4.24.6",
     "recharts": "2"
   }

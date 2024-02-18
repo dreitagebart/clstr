@@ -6,13 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "clean": "rm -rf ./dist ./node_modules ./.next",
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
     "@clstr/schema": "workspace:*",
     "@clstr/ui": "workspace:*",
     "next": "^14.0.4",
-    "next-auth": "^4.24.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -25,6 +25,9 @@
     "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
     "eslint": "^8.56.0",
+    "postcss": "^8.4.35",
+    "postcss-preset-mantine": "^1.13.0",
+    "postcss-simple-vars": "^7.0.1",
     "typescript": "^5.3.3"
   }
 }

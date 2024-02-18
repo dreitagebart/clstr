@@ -6,6 +6,7 @@
     "dev": "next dev --port 3001",
     "build": "next build",
     "start": "next start",
+    "clean": "rm -rf ./dist ./node_modules ./.next",
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {

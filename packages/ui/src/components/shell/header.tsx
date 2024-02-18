@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useInitials } from '@hooks/use-initials'
 import {
   ActionIcon,
@@ -72,8 +73,12 @@ export const Header: FC<Props> = ({ leftSection, rightSection }) => {
                 </MenuTarget>
                 <MenuDropdown>
                   <MenuLabel>logged in as {session.user.name}</MenuLabel>
-                  <MenuItem>Profile</MenuItem>
-                  <MenuItem>Settings</MenuItem>
+                  <MenuItem component={Link} href='/profile'>
+                    Profile
+                  </MenuItem>
+                  <MenuItem component={Link} href='/settings'>
+                    Settings
+                  </MenuItem>
                   <MenuDivider></MenuDivider>
                   <MenuItem onClick={() => signOut()}>Sign out</MenuItem>
                 </MenuDropdown>

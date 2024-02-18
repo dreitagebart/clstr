@@ -8,8 +8,8 @@
       "@hooks/*": ["./hooks/*"],
       "@utils/*": ["./utils/*"]
     },
-    "outDir": "dist"
+    "outDir": "./dist"
   },
-  "include": ["src/**/*"],
+  "include": ["**/*.ts", "**/*.tsx", "postcss.config.js"],
   "exclude": ["node_modules", "dist"]
 }
