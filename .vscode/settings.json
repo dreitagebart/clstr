@@ -1,4 +1,11 @@
 {
+  "cssVariables.lookupFiles": [
+    "**/*.css",
+    "**/*.scss",
+    "**/*.sass",
+    "**/*.less",
+    "packages/ui/@mantine/core/styles.css"
+  ],
   "eslint.workingDirectories": [
     {
       "mode": "auto"
