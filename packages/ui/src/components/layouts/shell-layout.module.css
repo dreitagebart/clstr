@@ -1,20 +1,22 @@
 .header {
   background-color: light-dark(
-    aliceblue,
+    lighten(var(--mantine-primary-color-3), 0.9),
     darken(var(--mantine-color-dark-9), 0.6)
   );
 }
 
 .navbar {
+  box-shadow: light-dark(0px 0px 12px 4px rgba(0, 0, 0, 0.4), unset);
+  color: var(--mantine-color-gray-0);
   background-color: light-dark(
-    aliceblue,
-    darken(var(--mantine-color-grape-9), 0.9)
+    darken(var(--mantine-primary-color-6), 0.8),
+    darken(var(--mantine-primary-color-8), 0.9)
   );
 }
 
 .main {
   background-color: light-dark(
-    aliceblue,
+    lighten(var(--mantine-primary-color-3), 0.9),
     darken(var(--mantine-color-dark-9), 0.6)
   );
 }

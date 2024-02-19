@@ -1,19 +1,19 @@
+'use client'
+
 import '@mantine/core/styles.css'
 import '@styles/globals.css'
 import { ColorSchemeScript, Flex, MantineProvider } from '@mantine/core'
 import { FC, PropsWithChildren } from 'react'
 import { colorSchemeManager } from '@utils/color-scheme'
 import { theme } from '@styles/theme'
-
-import classes from './center-layout.module.css'
 import { SessionProvider } from 'next-auth/react'
 
-export type CenterLayoutProps = PropsWithChildren
+import classes from './center-layout.module.css'
 
-export const CenterLayout: FC<CenterLayoutProps> = ({ children }) => {
+export const CenterLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
-      <ColorSchemeScript></ColorSchemeScript>
+      <ColorSchemeScript defaultColorScheme='auto'></ColorSchemeScript>
       <SessionProvider>
         <MantineProvider
           classNamesPrefix='clstr'

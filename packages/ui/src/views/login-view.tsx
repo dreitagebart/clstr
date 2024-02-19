@@ -19,7 +19,7 @@ export const LoginView: FC<Props> = () => {
       >
         <LoginLogo></LoginLogo>
         <LoginForm
-          onSubmit={(values) => {
+          onSubmit={() => {
             return null
           }}
         ></LoginForm>

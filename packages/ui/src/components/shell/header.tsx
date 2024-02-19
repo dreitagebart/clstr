@@ -18,12 +18,15 @@ import {
   Popover,
   PopoverDropdown,
   PopoverTarget,
+  Switch,
   Text,
-  UnstyledButton
+  UnstyledButton,
+  rem,
+  useMantineColorScheme
 } from '@mantine/core'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { FC, ReactNode } from 'react'
-import { IconBell } from '@tabler/icons-react'
+import { IconBell, IconMoon, IconSun } from '@tabler/icons-react'
 
 interface Props {
   leftSection?: ReactNode
@@ -32,6 +35,9 @@ interface Props {
 
 export const Header: FC<Props> = ({ leftSection, rightSection }) => {
   const { data: session, status } = useSession()
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme({
+    keepTransitions: true
+  })
   const initials = useInitials(session?.user?.name || '')
 
   return (
@@ -65,7 +71,15 @@ export const Header: FC<Props> = ({ leftSection, rightSection }) => {
                   <Text>Ach komm, geh weg!</Text>
                 </PopoverDropdown>
               </Popover>
-              <Menu withinPortal width={200} position='bottom-end'>
+              <Menu
+                withinPortal
+                width={260}
+                position='bottom-end'
+                transitionProps={{
+                  transition: 'rotate-left',
+                  duration: 250
+                }}
+              >
                 <MenuTarget>
                   <UnstyledButton>
                     <Avatar src={session.user.image}>{initials}</Avatar>
@@ -73,6 +87,39 @@ export const Header: FC<Props> = ({ leftSection, rightSection }) => {
                 </MenuTarget>
                 <MenuDropdown>
                   <MenuLabel>logged in as {session.user.name}</MenuLabel>
+                  <MenuItem
+                    onClick={() => {
+                      toggleColorScheme()
+                    }}
+                    rightSection={
+                      <Switch
+                        size='md'
+                        onChange={() => toggleColorScheme()}
+                        thumbIcon={
+                          colorScheme === 'light' ? (
+                            <IconMoon
+                              style={{
+                                color: 'var(--mantine-color-dark-6)',
+                                width: rem(14),
+                                height: rem(14)
+                              }}
+                            ></IconMoon>
+                          ) : (
+                            <IconSun
+                              style={{
+                                color: 'var(--mantine-color-dark-6)',
+                                width: rem(14),
+                                height: rem(14)
+                              }}
+                            ></IconSun>
+                          )
+                        }
+                        checked={colorScheme === 'light'}
+                      ></Switch>
+                    }
+                  >
+                    Dark mode
+                  </MenuItem>
                   <MenuItem component={Link} href='/profile'>
                     Profile
                   </MenuItem>

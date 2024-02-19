@@ -13,15 +13,13 @@ import { SessionProvider } from 'next-auth/react'
 
 import classes from './shell-layout.module.css'
 
-export type ShellLayoutProps = PropsWithChildren
-
-export const ShellLayout: FC<ShellLayoutProps> = ({ children }) => {
+export const ShellLayout: FC<PropsWithChildren> = ({ children }) => {
   const navbar = useNavbar()
   const aside = useAside()
 
   return (
     <>
-      <ColorSchemeScript></ColorSchemeScript>
+      <ColorSchemeScript defaultColorScheme='auto'></ColorSchemeScript>
       <SessionProvider>
         <MantineProvider
           classNamesPrefix='clstr'

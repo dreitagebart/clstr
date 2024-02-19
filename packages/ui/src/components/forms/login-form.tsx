@@ -6,10 +6,14 @@ import {
   Group,
   PasswordInput,
   Stack,
-  TextInput
+  TextInput,
+  Title
 } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { ChangeEvent, FC, useCallback } from 'react'
+import { authOptions } from '@utils/auth'
+import { signIn } from 'next-auth/react'
+import { IconBrandGithubFilled, TablerIconsProps } from '@tabler/icons-react'
 
 import classes from './login-form.module.css'
 
@@ -20,6 +24,10 @@ interface Props {
 interface FormValues {
   username: string
   password: string
+}
+
+const iconMap: Record<'github', FC<TablerIconsProps>> = {
+  github: IconBrandGithubFilled
 }
 
 export const LoginForm: FC<Props> = ({ onSubmit }) => {
@@ -60,6 +68,23 @@ export const LoginForm: FC<Props> = ({ onSubmit }) => {
           <Group>
             <Button type='submit'>Login</Button>
           </Group>
+        </Stack>
+        <Stack mt='xl' align='center'>
+          <Title order={6}>Login with</Title>
+          {authOptions.providers.map(({ id, name }) => {
+            const Icon = (iconMap as any)[id] as FC<TablerIconsProps>
+
+            return (
+              <Button
+                leftSection={<Icon></Icon>}
+                variant='light'
+                key={id}
+                onClick={() => signIn(id, { callbackUrl: '/' })}
+              >
+                {name}
+              </Button>
+            )
+          })}
         </Stack>
       </Box>
     </form>

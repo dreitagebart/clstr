@@ -3,6 +3,6 @@ import { montserrat } from '@utils/fonts'
 
 export const theme: MantineThemeOverride = createTheme({
   fontFamily: montserrat.style.fontFamily,
-  primaryColor: 'grape',
+  primaryColor: 'blue',
   primaryShade: 7
 })

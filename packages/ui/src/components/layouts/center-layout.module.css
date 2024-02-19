@@ -1,4 +1,8 @@
 .root {
+  background-color: light-dark(
+    aliceblue,
+    darken(var(--mantine-color-dark-9), 0.6)
+  );
   min-width: 100vw;
   min-height: 100vh;
 }

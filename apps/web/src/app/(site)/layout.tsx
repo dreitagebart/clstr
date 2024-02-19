@@ -1,4 +1,4 @@
-import { ShellLayout } from '@components/layouts'
+import { ShellLayout } from '@clstr/ui/layouts'
 import { Metadata } from 'next'
 import { FC, PropsWithChildren } from 'react'
 
