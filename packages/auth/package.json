@@ -1,0 +1,20 @@
+{
+  "name": "@clstr/auth",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "clean": "rm -rf ./dist ./node_modules",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@clstr/typescript-config": "workspace:*",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "next-auth": "^4.24.6"
+  }
+}

@@ -1,4 +1,4 @@
-import { authOptions } from '@utils/auth'
+import { authOptions } from '@clstr/auth'
 import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
 import { PropsWithChildren } from 'react'

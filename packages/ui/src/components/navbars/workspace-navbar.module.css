@@ -1,0 +1,56 @@
+.wrapper {
+  border: 1px solid red;
+  padding: var(--mantine-spacing-md);
+}
+
+.menuTarget {
+  width: 100%;
+  padding: var(--mantine-spacing-md);
+  border-radius: 8px;
+  background-color: darken(var(--mantine-primary-color-6), 0.4);
+  border: 1px solid darken(var(--mantine-primary-color-6), 0.3);
+}
+
+.menuItem {
+  transition: all 250ms ease-in-out;
+  color: var(--mantine-color-gray-0);
+  /* background-color: light-dark(
+    darken(var(--mantine-primary-color-6), 0.8),
+    darken(var(--mantine-primary-color-8), 0.9)
+  ); */
+
+  &:hover {
+    background-color: light-dark(
+      darken(var(--mantine-primary-color-6), 0.4),
+      darken(var(--mantine-primary-color-8), 0.7)
+    );
+  }
+}
+
+.menuItemLabel {
+  /* border: 1px solid red; */
+}
+
+.menuItemSection {
+  /* border: 1px solid blue; */
+}
+
+.menuDivider {
+  border-color: light-dark(
+    var(--mantine-primary-color-6),
+    darken(var(--mantine-primary-color-6), 0.6)
+  );
+  /* padding-bottom: var(--mantine-spacing-xs); */
+}
+
+.menuDropdown {
+  border: 1px solid
+    light-dark(
+      darken(var(--mantine-primary-color-6), 0.3),
+      darken(var(--mantine-primary-color-6), 0.8)
+    );
+  background-color: light-dark(
+    darken(var(--mantine-primary-color-6), 0.4),
+    darken(var(--mantine-primary-color-8), 0.8)
+  ) !important;
+}

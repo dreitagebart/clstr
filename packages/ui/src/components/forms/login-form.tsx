@@ -11,7 +11,7 @@ import {
 } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { ChangeEvent, FC, useCallback } from 'react'
-import { authOptions } from '@utils/auth'
+import { authOptions } from '@clstr/auth'
 import { signIn } from 'next-auth/react'
 import { IconBrandGithubFilled, TablerIconsProps } from '@tabler/icons-react'
 

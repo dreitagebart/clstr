@@ -1,4 +1,4 @@
 import { builder } from '../builder'
-import './hello'
+import './user.query'
 
 builder.queryType()

@@ -1,3 +1,3 @@
-import { handler } from '@clstr/ui/auth'
+import { handler } from '@clstr/auth'
 
 export { handler as GET, handler as POST }

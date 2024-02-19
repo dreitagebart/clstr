@@ -17,6 +17,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@clstr/auth": "workspace:*",
     "@clstr/eslint-config": "workspace:*",
     "@clstr/typescript-config": "workspace:*",
     "@next/eslint-plugin-next": "^14.0.4",

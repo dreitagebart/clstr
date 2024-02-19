@@ -11,9 +11,7 @@ export const SettingsView: FC<Props> = () => {
       <Header></Header>
       <Navbar>Einstellungen</Navbar>
       <>
-        <Title fz={140}>
-          Ich möchte gerne ein toller Entwickler sein! Aber ich weiß
-        </Title>
+        <Title fz={140}>Ich möchte gerne ein toller Entwickler sein!</Title>
       </>
     </Auth>
   )

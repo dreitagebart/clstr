@@ -87,24 +87,24 @@ export const Header: FC<Props> = ({ leftSection, rightSection }) => {
                 </MenuTarget>
                 <MenuDropdown>
                   <MenuLabel>logged in as {session.user.name}</MenuLabel>
-                  <MenuItem
-                    onClick={() => {
-                      toggleColorScheme()
-                    }}
-                    rightSection={
+                  <MenuLabel>
+                    <Group justify='space-between'>
+                      <UnstyledButton
+                        onClick={() => {
+                          toggleColorScheme()
+                        }}
+                      >
+                        <Text fz={'sm'} c={'var(--mantine-color-text)'}>
+                          Dark mode
+                        </Text>
+                      </UnstyledButton>
                       <Switch
+                        styles={{ root: { cursor: 'pointer' } }}
                         size='md'
                         onChange={() => toggleColorScheme()}
+                        // onClick={() => toggleColorScheme()}
                         thumbIcon={
                           colorScheme === 'light' ? (
-                            <IconMoon
-                              style={{
-                                color: 'var(--mantine-color-dark-6)',
-                                width: rem(14),
-                                height: rem(14)
-                              }}
-                            ></IconMoon>
-                          ) : (
                             <IconSun
                               style={{
                                 color: 'var(--mantine-color-dark-6)',
@@ -112,14 +112,20 @@ export const Header: FC<Props> = ({ leftSection, rightSection }) => {
                                 height: rem(14)
                               }}
                             ></IconSun>
+                          ) : (
+                            <IconMoon
+                              style={{
+                                color: 'var(--mantine-color-dark-6)',
+                                width: rem(14),
+                                height: rem(14)
+                              }}
+                            ></IconMoon>
                           )
                         }
                         checked={colorScheme === 'light'}
                       ></Switch>
-                    }
-                  >
-                    Dark mode
-                  </MenuItem>
+                    </Group>
+                  </MenuLabel>
                   <MenuItem component={Link} href='/profile'>
                     Profile
                   </MenuItem>
