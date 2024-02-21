@@ -1,21 +1,7 @@
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client'
+import { ApolloClient, InMemoryCache } from '@apollo/client'
 
 export const client = new ApolloClient({
-  uri: 'https://flyby-router-demo.herokuapp.com/',
-  cache: new InMemoryCache()
+  uri: 'http://localhost:3000/api/graphql',
+  cache: new InMemoryCache(),
+  credentials: 'include'
 })
-
-client
-  .query({
-    query: gql`
-      query GetLocations {
-        locations {
-          id
-          name
-          description
-          photo
-        }
-      }
-    `
-  })
-  .then((result) => console.log(result))

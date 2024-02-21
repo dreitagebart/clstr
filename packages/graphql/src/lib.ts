@@ -1,1 +1,1 @@
-export { useQuery, ApolloProvider } from '@apollo/client'
+export { useQuery, useSuspenseQuery, ApolloProvider } from '@apollo/client'
