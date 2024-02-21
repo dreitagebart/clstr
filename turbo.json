@@ -18,9 +18,42 @@
         "^lint"
       ]
     },
+    "codegen": {},
+    "@clstr/graphql#build": {
+      "cache": false,
+      "dependsOn": [
+        "@clstr/schema#build"
+      ]
+    },
+    "@clstr/schema#build": {
+      "cache": false,
+      "dependsOn": [
+        "@clstr/auth#build"
+      ]
+    },
+    "@clstr/schema#generate:prisma": {
+      "cache": false
+    },
+    "@clstr/schema#generate:schema": {
+      "cache": false,
+      "dependsOn": [
+        "@clstr/auth#build"
+      ]
+    },
+    "generate": {
+      "cache": false
+    },
     "dev": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "dependsOn": [
+        "@clstr/auth#build",
+        "@clstr/schema#generate:prisma",
+        "@clstr/schema#generate:schema",
+        "@clstr/schema#build",
+        "@clstr/graphql#build",
+        "@clstr/graphql#codegen"
+      ]
     },
     "clean": {
       "cache": false

@@ -4,11 +4,13 @@
     "**/*.scss",
     "**/*.sass",
     "**/*.less",
-    "packages/ui/@mantine/core/styles.css"
+    "packages/ui/node_modules/@mantine/core/styles.css"
   ],
   "eslint.workingDirectories": [
     {
       "mode": "auto"
     }
-  ]
+  ],
+  "typescript.tsdk": "./packages/graphql/node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }

@@ -1,0 +1,129 @@
+enum ColorScheme {
+  dark
+  light
+}
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+type Folder {
+  createdAt: DateTime!
+  id: ID!
+  pages: [Page!]!
+  title: String!
+  workspace: Workspace!
+  workspaceId: String!
+}
+
+input FolderCreateInput {
+  title: String!
+  workspaceId: String!
+}
+
+input FolderUpdateInput {
+  title: String!
+}
+
+input FolderWhereUniqueInput {
+  id: String!
+}
+
+type Mutation {
+  folderCreate(data: FolderCreateInput!): Folder!
+  folderUpdate(data: FolderUpdateInput!, where: FolderWhereUniqueInput!): Folder!
+  pageCreate(data: PageCreateInput!): Page!
+  pageUpdate(data: PageUpdateInput!, where: PageWhereUniqueInput!): Page!
+  userCreate(data: UserCreateInput!): User!
+  userUpdate(data: UserUpdateInput!, where: UserWhereUniqueInput!): User!
+  workspaceCreate(data: WorkspaceCreateInput!): Workspace!
+  workspaceUpdate(data: WorkspaceUpdateInput!, where: WorkspaceWhereUniqueInput!): Workspace!
+}
+
+type Page {
+  author: User!
+  authorId: String!
+  content: String!
+  createdAt: DateTime!
+  folder: Folder
+  folderId: String
+  id: ID!
+  title: String!
+  workspace: Workspace!
+  workspaceId: String!
+}
+
+input PageCreateInput {
+  content: String!
+  title: String!
+  workspaceId: String!
+}
+
+input PageUpdateInput {
+  content: String!
+  title: String!
+}
+
+input PageWhereUniqueInput {
+  id: String!
+}
+
+type Query {
+  users: [User!]!
+}
+
+type User {
+  about: String
+  colorScheme: ColorScheme!
+  createdAt: DateTime!
+  email: String!
+  firstname: String!
+  id: ID!
+  lastname: String!
+  pages: [Page!]!
+  workspaces: [Workspace!]!
+}
+
+input UserCreateInput {
+  about: String
+  email: String!
+  firstname: String!
+  lastname: String!
+}
+
+input UserUpdateInput {
+  about: String
+  email: String!
+  firstname: String!
+  lastname: String!
+}
+
+input UserWhereUniqueInput {
+  id: String!
+}
+
+type Workspace {
+  author: User!
+  authorId: String!
+  createdAt: DateTime!
+  description: String
+  folders: [Folder!]!
+  id: ID!
+  pages: [Page!]!
+  title: String!
+}
+
+input WorkspaceCreateInput {
+  description: String
+  title: String!
+}
+
+input WorkspaceUpdateInput {
+  description: String
+  title: String!
+}
+
+input WorkspaceWhereUniqueInput {
+  id: String!
+}

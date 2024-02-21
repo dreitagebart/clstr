@@ -12,7 +12,8 @@
     "reset": "turbo run clean && pnpm install",
     "type-check": "turbo type-check",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "turbo": "turbo"
   },
   "devDependencies": {
     "@clstr/eslint-config": "workspace:*",

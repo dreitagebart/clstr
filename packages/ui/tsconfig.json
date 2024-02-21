@@ -1,15 +1,18 @@
 {
   "extends": "@clstr/typescript-config/react-library.json",
   "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "baseUrl": "./src",
     "paths": {
       "@styles/*": ["./styles/*"],
       "@components/*": ["./components/*"],
       "@hooks/*": ["./hooks/*"],
-      "@utils/*": ["./utils/*"]
+      "@utils/*": ["./utils/*"],
+      "@graphql/*": ["./graphql/*"]
     },
     "outDir": "./dist"
   },
-  "include": ["**/*.ts", "**/*.tsx", "postcss.config.js"],
+  "include": ["**/*.ts", "**/*.tsx", "postcss.config.cjs"],
   "exclude": ["node_modules", "dist"]
 }

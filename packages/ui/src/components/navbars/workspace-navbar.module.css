@@ -1,5 +1,5 @@
 .wrapper {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding: var(--mantine-spacing-md);
 }
 
@@ -28,11 +28,11 @@
 }
 
 .menuItemLabel {
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 
 .menuItemSection {
-  /* border: 1px solid blue; */
+  border: 1px solid blue;
 }
 
 .menuDivider {

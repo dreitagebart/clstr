@@ -10,6 +10,7 @@ import { Main } from '@components/shell'
 import { theme } from '@styles/theme'
 import { colorSchemeManager } from '@utils/color-scheme'
 import { SessionProvider } from 'next-auth/react'
+import { client, ApolloProvider } from '@clstr/graphql'
 
 import classes from './shell-layout.module.css'
 
@@ -21,41 +22,43 @@ export const ShellLayout: FC<PropsWithChildren> = ({ children }) => {
     <>
       <ColorSchemeScript defaultColorScheme='auto'></ColorSchemeScript>
       <SessionProvider>
-        <MantineProvider
-          classNamesPrefix='clstr'
-          withCssVariables
-          defaultColorScheme='auto'
-          theme={theme}
-          colorSchemeManager={colorSchemeManager}
-        >
-          <AppShell
-            layout='alt'
-            classNames={{
-              header: classes.header,
-              navbar: classes.navbar,
-              main: classes.main
-            }}
-            header={{ height: 80, offset: true }}
-            navbar={{
-              width: { base: 400, md: 300, lg: 400 },
-              breakpoint: 'sm',
-              collapsed: {
-                mobile: true,
-                desktop: !navbar.opened
-              }
-            }}
-            aside={{
-              width: { base: 400, md: 300 },
-              breakpoint: 'sm',
-              collapsed: {
-                mobile: true,
-                desktop: !aside.opened
-              }
-            }}
+        <ApolloProvider client={client}>
+          <MantineProvider
+            classNamesPrefix='clstr'
+            withCssVariables
+            defaultColorScheme='auto'
+            theme={theme}
+            colorSchemeManager={colorSchemeManager}
           >
-            <Main>{children}</Main>
-          </AppShell>
-        </MantineProvider>
+            <AppShell
+              layout='alt'
+              classNames={{
+                header: classes.header,
+                navbar: classes.navbar,
+                main: classes.main
+              }}
+              header={{ height: 80, offset: true }}
+              navbar={{
+                width: { base: 400, md: 300, lg: 400 },
+                breakpoint: 'sm',
+                collapsed: {
+                  mobile: true,
+                  desktop: !navbar.opened
+                }
+              }}
+              aside={{
+                width: { base: 400, md: 300 },
+                breakpoint: 'sm',
+                collapsed: {
+                  mobile: true,
+                  desktop: !aside.opened
+                }
+              }}
+            >
+              <Main>{children}</Main>
+            </AppShell>
+          </MantineProvider>
+        </ApolloProvider>
       </SessionProvider>
     </>
   )

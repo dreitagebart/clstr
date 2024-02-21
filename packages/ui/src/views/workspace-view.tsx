@@ -1,18 +1,7 @@
-import Link from 'next/link'
 import { Header, Navbar } from '@components/shell'
-import {
-  Box,
-  Group,
-  Menu,
-  MenuDropdown,
-  MenuItem,
-  MenuTarget,
-  Text,
-  Title,
-  UnstyledButton
-} from '@mantine/core'
-import { IconChevronDown } from '@tabler/icons-react'
+import { Text } from '@mantine/core'
 import { WorkspaceNavbar } from '@components/navbars'
+import { allUsersQuery, useQuery } from '@clstr/graphql'
 
 const getJoke = async () => {
   const response = await fetch('https://api.chucknorris.io/jokes/random', {
@@ -36,7 +25,7 @@ export const WorkspaceView = async () => {
         <WorkspaceNavbar></WorkspaceNavbar>
       </Navbar>
       <>
-        <Title>{joke.value}</Title>
+        <Text>{joke.value}</Text>
       </>
     </>
   )
