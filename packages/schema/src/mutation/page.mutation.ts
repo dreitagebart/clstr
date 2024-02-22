@@ -1,4 +1,4 @@
-import { getServerSession } from '@clstr/auth'
+import { auth } from '@clstr/auth'
 import { builder } from '../builder'
 import { client } from '../client'
 import {
@@ -15,7 +15,7 @@ builder.mutationField('pageCreate', (t) =>
       data: t.arg({ type: PageCreateInput, required: true })
     },
     resolve: async (query, root, { data }) => {
-      const session = await getServerSession()
+      const session = await auth()
 
       console.log('session', JSON.stringify(session, null, 2))
 

@@ -1,12 +1,12 @@
-import { authOptions } from '@clstr/auth'
-import { getServerSession } from 'next-auth'
+import { auth } from '@clstr/auth'
+// import { getServerSession } from 'next-auth/next'
 import { redirect } from 'next/navigation'
 import { PropsWithChildren } from 'react'
 
 const isAuthorized = async () => {
-  const auth = await getServerSession(authOptions)
+  const checkAuth = await auth()
 
-  if (auth?.user) {
+  if (checkAuth?.user) {
     return true
   }
 

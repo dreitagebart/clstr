@@ -51,7 +51,7 @@ export const Header: FC<Props> = ({ leftSection, rightSection }) => {
         {leftSection}
         <Group>
           {rightSection}
-          {status === 'loading' ? null : session?.user ? (
+          {session?.user ? (
             <>
               <Popover
                 withinPortal
@@ -138,7 +138,9 @@ export const Header: FC<Props> = ({ leftSection, rightSection }) => {
               </Menu>
             </>
           ) : (
-            <Button onClick={() => signIn()}>Sign in</Button>
+            <Button loading={status === 'loading'} onClick={() => signIn()}>
+              Sign in
+            </Button>
           )}
         </Group>
       </Flex>

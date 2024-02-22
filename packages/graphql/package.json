@@ -2,8 +2,24 @@
   "name": "@clstr/graphql",
   "version": "0.1.0",
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/index.d.ts"
+      ],
+      "ssr": [
+        "./dist/ssr.d.ts"
+      ],
+      "rsc": [
+        "./dist/rsc.d.ts"
+      ]
+    }
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./ssr": "./dist/ssr.js",
+    "./rsc": "./dist/rsc.js"
+  },
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
@@ -21,6 +37,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.9.5",
+    "@apollo/experimental-nextjs-app-support": "^0.8.0",
     "@clstr/schema": "workspace:*",
     "@graphql-typed-document-node/core": "^3.2.0",
     "graphql": "^16.8.1"

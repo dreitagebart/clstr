@@ -1,7 +1,6 @@
 import { Header, Navbar } from '@components/shell'
 import { Text } from '@mantine/core'
 import { WorkspaceNavbar } from '@components/navbars'
-import { allUsersQuery, useQuery } from '@clstr/graphql'
 
 const getJoke = async () => {
   const response = await fetch('https://api.chucknorris.io/jokes/random', {

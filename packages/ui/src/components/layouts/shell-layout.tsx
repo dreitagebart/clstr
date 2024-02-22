@@ -10,7 +10,7 @@ import { Main } from '@components/shell'
 import { theme } from '@styles/theme'
 import { colorSchemeManager } from '@utils/color-scheme'
 import { SessionProvider } from 'next-auth/react'
-import { client, ApolloProvider } from '@clstr/graphql'
+import { makeClient, ApolloNextAppProvider } from '@clstr/graphql/ssr'
 
 import classes from './shell-layout.module.css'
 
@@ -22,7 +22,7 @@ export const ShellLayout: FC<PropsWithChildren> = ({ children }) => {
     <>
       <ColorSchemeScript defaultColorScheme='auto'></ColorSchemeScript>
       <SessionProvider>
-        <ApolloProvider client={client}>
+        <ApolloNextAppProvider makeClient={makeClient}>
           <MantineProvider
             classNamesPrefix='clstr'
             withCssVariables
@@ -58,7 +58,7 @@ export const ShellLayout: FC<PropsWithChildren> = ({ children }) => {
               <Main>{children}</Main>
             </AppShell>
           </MantineProvider>
-        </ApolloProvider>
+        </ApolloNextAppProvider>
       </SessionProvider>
     </>
   )

@@ -11,7 +11,7 @@ import {
 } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { ChangeEvent, FC, useCallback } from 'react'
-import { authOptions } from '@clstr/auth'
+// import { authOptions } from '@clstr/auth'
 import { signIn } from 'next-auth/react'
 import { IconBrandGithubFilled, TablerIconsProps } from '@tabler/icons-react'
 
@@ -71,7 +71,14 @@ export const LoginForm: FC<Props> = ({ onSubmit }) => {
         </Stack>
         <Stack mt='xl' align='center'>
           <Title order={6}>Login with</Title>
-          {authOptions.providers.map(({ id, name }) => {
+          <Button
+            leftSection={<IconBrandGithubFilled></IconBrandGithubFilled>}
+            variant='light'
+            onClick={() => signIn('github', { callbackUrl: '/' })}
+          >
+            Sign in with Github
+          </Button>
+          {/* {authOptions.providers.map(({ id, name }) => {
             const Icon = (iconMap as any)[id] as FC<TablerIconsProps>
 
             return (
@@ -84,7 +91,7 @@ export const LoginForm: FC<Props> = ({ onSubmit }) => {
                 {name}
               </Button>
             )
-          })}
+          })} */}
         </Stack>
       </Box>
     </form>

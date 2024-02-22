@@ -1,4 +1,4 @@
-import { getServerSession } from '@clstr/auth'
+import { auth } from '@clstr/auth'
 import { GraphQLError } from 'graphql'
 
 import { builder } from '../builder'
@@ -16,7 +16,7 @@ builder.mutationField('folderCreate', (t) =>
       data: t.arg({ type: FolderCreateInput, required: true })
     },
     resolve: async (query, root, { data }) => {
-      const session = await getServerSession()
+      const session = await auth()
 
       console.log('session', JSON.stringify(session, null, 2))
 

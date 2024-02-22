@@ -1,3 +1,1 @@
-import { handler } from '@clstr/auth'
-
-export { handler as GET, handler as POST }
+export { GET, POST } from '@clstr/auth'
