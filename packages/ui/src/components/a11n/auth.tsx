@@ -1,5 +1,4 @@
 import { auth } from '@clstr/auth'
-// import { getServerSession } from 'next-auth/next'
 import { redirect } from 'next/navigation'
 import { PropsWithChildren } from 'react'
 

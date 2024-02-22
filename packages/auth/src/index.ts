@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth'
-import type { NextAuthResult } from 'next-auth'
 import GitHub from 'next-auth/providers/github'
 
+export { useSession, SessionProvider } from 'next-auth/react'
 // export const {
 //   handlers: { GET, POST },
 //   auth

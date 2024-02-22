@@ -6,7 +6,6 @@ import {
   ActionIcon,
   AppShellHeader,
   Avatar,
-  Button,
   Flex,
   Group,
   Menu,
@@ -24,9 +23,11 @@ import {
   rem,
   useMantineColorScheme
 } from '@mantine/core'
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { SignInButton } from '@components/a11n'
+import { useSession } from '@clstr/auth'
 import { FC, ReactNode } from 'react'
 import { IconBell, IconMoon, IconSun } from '@tabler/icons-react'
+import { logout } from '@components/a11n/actions'
 
 interface Props {
   leftSection?: ReactNode
@@ -133,14 +134,12 @@ export const Header: FC<Props> = ({ leftSection, rightSection }) => {
                     Settings
                   </MenuItem>
                   <MenuDivider></MenuDivider>
-                  <MenuItem onClick={() => signOut()}>Sign out</MenuItem>
+                  <MenuItem onClick={() => logout()}>Sign out</MenuItem>
                 </MenuDropdown>
               </Menu>
             </>
           ) : (
-            <Button loading={status === 'loading'} onClick={() => signIn()}>
-              Sign in
-            </Button>
+            <SignInButton loading={status === 'loading'}></SignInButton>
           )}
         </Group>
       </Flex>

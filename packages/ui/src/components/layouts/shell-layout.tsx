@@ -1,27 +1,22 @@
-'use client'
-
 import '@mantine/core/styles.css'
 import '@styles/globals.css'
 import { AppShell, ColorSchemeScript, MantineProvider } from '@mantine/core'
-import { FC, PropsWithChildren } from 'react'
-import { useAside } from '@hooks/use-aside'
-import { useNavbar } from '@hooks/use-navbar'
+import { PropsWithChildren } from 'react'
 import { Main } from '@components/shell'
 import { theme } from '@styles/theme'
 import { colorSchemeManager } from '@utils/color-scheme'
-import { SessionProvider } from 'next-auth/react'
+import { SessionProvider, auth } from '@clstr/auth'
 import { makeClient, ApolloNextAppProvider } from '@clstr/graphql/ssr'
 
 import classes from './shell-layout.module.css'
 
-export const ShellLayout: FC<PropsWithChildren> = ({ children }) => {
-  const navbar = useNavbar()
-  const aside = useAside()
+export const ShellLayout = async ({ children }: PropsWithChildren) => {
+  const session = await auth()
 
   return (
     <>
       <ColorSchemeScript defaultColorScheme='auto'></ColorSchemeScript>
-      <SessionProvider>
+      <SessionProvider session={session}>
         <ApolloNextAppProvider makeClient={makeClient}>
           <MantineProvider
             classNamesPrefix='clstr'
@@ -43,7 +38,7 @@ export const ShellLayout: FC<PropsWithChildren> = ({ children }) => {
                 breakpoint: 'sm',
                 collapsed: {
                   mobile: true,
-                  desktop: !navbar.opened
+                  desktop: false
                 }
               }}
               aside={{
@@ -51,7 +46,7 @@ export const ShellLayout: FC<PropsWithChildren> = ({ children }) => {
                 breakpoint: 'sm',
                 collapsed: {
                   mobile: true,
-                  desktop: !aside.opened
+                  desktop: false
                 }
               }}
             >

@@ -12,7 +12,7 @@ import {
 import { useForm } from '@mantine/form'
 import { ChangeEvent, FC, useCallback } from 'react'
 // import { authOptions } from '@clstr/auth'
-import { signIn } from 'next-auth/react'
+import { login } from '@components/a11n/actions'
 import { IconBrandGithubFilled, TablerIconsProps } from '@tabler/icons-react'
 
 import classes from './login-form.module.css'
@@ -74,7 +74,7 @@ export const LoginForm: FC<Props> = ({ onSubmit }) => {
           <Button
             leftSection={<IconBrandGithubFilled></IconBrandGithubFilled>}
             variant='light'
-            onClick={() => signIn('github', { callbackUrl: '/' })}
+            onClick={() => login('github', { redirectTo: '/' })}
           >
             Sign in with Github
           </Button>

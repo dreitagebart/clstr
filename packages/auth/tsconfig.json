@@ -4,9 +4,14 @@
     "outDir": "./dist",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "types": ["next-auth"]
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+    // "esModuleInterop": true,
+    // "allowSyntheticDefaultImports": true,
+    // "types": ["next-auth"]
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "dist"]
